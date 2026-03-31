@@ -4,13 +4,12 @@
 
 **Curated collection of DESIGN.md files inspired by popular websites.**
 
-Copy a DESIGN.md into your project, tell your AI agent "build me a page that looks like this" and get pixel-perfect UI that actually matches.
-
+Copy a DESIGN.md into your project, tell your AI agent "build me a page that looks like [popular website]" and get pixel-perfect UI that actually matches.
 
 <br />
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
-![Site Count](https://img.shields.io/badge/sites-3-10b981?style=classic)
+![DESIGN.md Count](https://img.shields.io/badge/DESIGN.md%20count-31-10b981?style=classic)
 [![Last Update](https://img.shields.io/github/last-commit/VoltAgent/awesome-design-md?label=Last%20update&style=classic)](https://github.com/VoltAgent/awesome-design-md)
 [![Discord](https://img.shields.io/discord/1361559153780195478.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://s.voltagent.dev/discord)
 
@@ -21,9 +20,9 @@ Copy a DESIGN.md into your project, tell your AI agent "build me a page that loo
 
 ## What is DESIGN.md?
 
-[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a concept introduced by Google Stitch. A plain-text design system document that AI agents read to generate consistent UI.
+[DESIGN.md](https://stitch.withgoogle.com/docs/design-md/overview/) is a new concept introduced by Google Stitch. A plain-text design system document that AI agents read to generate consistent UI.
 
-It's just a markdown file. You can read it, edit it, commit it to git. No Figma exports, no JSON schemas, no special tooling. Drop it into your project root and any AI coding agent instantly understands how your UI should look. Markdown is the format LLMs read best, so there's nothing to parse or configure.
+It's just a markdown file. No Figma exports, no JSON schemas, no special tooling. Drop it into your project root and any AI coding agent or Google Stitch instantly understands how your UI should look. Markdown is the format LLMs read best, so there's nothing to parse or configure.
 
 | File | Who reads it | What it defines |
 |------|-------------|-----------------|
@@ -66,26 +65,51 @@ Each site includes:
 
 ## Collection
 
+### AI & Machine Learning
+
+- [**Claude**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/claude/) - Anthropic's AI assistant. Warm terracotta accent, clean editorial layout
+- [**Cohere**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/cohere/) - Enterprise AI platform. Vibrant gradients, data-rich dashboard aesthetic
+- [**Minimax**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/minimax/) - AI model provider. Bold dark interface with neon accents
+- [**Mistral AI**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/mistral.ai/) - Open-weight LLM provider. French-engineered minimalism, purple-toned
+- [**Ollama**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/ollama/) - Run LLMs locally. Terminal-first, monochrome simplicity
+- [**OpenCode AI**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/opencode.ai/) - AI coding platform. Developer-centric dark theme
+- [**Replicate**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/replicate/) - Run ML models via API. Clean white canvas, code-forward
+- [**RunwayML**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/runwayml/) - AI video generation. Cinematic dark UI, media-rich layout
+- [**Together AI**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/together.ai/) - Open-source AI infrastructure. Technical, blueprint-style design
+- [**VoltAgent**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/voltagent/) - AI agent framework. Void-black canvas, emerald accent, terminal-native
+- [**xAI**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/x.ai/) - Elon Musk's AI lab. Stark monochrome, futuristic minimalism
+
 ### Developer Tools & Platforms
 
-Sites building tools for developers. Dark themes, code-first aesthetics, terminal vibes.
+- [**Cursor**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/cursor/) - AI-first code editor. Sleek dark interface, gradient accents
+- [**Expo**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/expo/) - React Native platform. Dark theme, tight letter-spacing, code-centric
+- [**Linear**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/linear.app/) - Project management for engineers. Ultra-minimal, precise, purple accent
+- [**Lovable**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/lovable/) - AI full-stack builder. Playful gradients, friendly dev aesthetic
+- [**Mintlify**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/mintlify/) - Documentation platform. Clean, green-accented, reading-optimized
+- [**Sentry**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/sentry/) - Error monitoring. Dark dashboard, data-dense, pink-purple accent
+- [**Supabase**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/supabase/) - Open-source Firebase alternative. Dark emerald theme, code-first
+- [**Vercel**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/vercel/) - Frontend deployment platform. Black and white precision, Geist font
+- [**Zapier**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/zapier/) - Automation platform. Warm orange, friendly illustration-driven
 
-| Site | Description | Preview |
-|------|-------------|---------|
-| [**Cloudflare**](cloudflare/DESIGN.md) | Bold orange identity, high-contrast sections, billboard-scale typography | [Light](cloudflare/preview.html) · [Dark](cloudflare/preview-dark.html) |
-| [**VoltAgent**](voltagent/DESIGN.md) | Void-black canvas, emerald "voltage" accent, terminal-native aesthetic | [Light](voltagent/preview.html) · [Dark](voltagent/preview-dark.html) |
+### Infrastructure & Cloud
 
-### Product & SaaS
+- [**ClickHouse**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/clickhouse/) - Fast analytics database. Yellow-accented, technical documentation style
+- [**Composio**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/composio/) - Tool integration platform. Modern dark with colorful integration icons
+- [**HashiCorp**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/hashicorp/) - Infrastructure automation. Enterprise-clean, black and white
+- [**Sanity**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/sanity/) - Headless CMS. Red accent, content-first editorial layout
+- [**Stripe**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/stripe/) - Payment infrastructure. Signature purple gradients, weight-300 elegance
 
-Consumer-facing product sites with polished, conversion-focused design.
+### Design & Productivity
 
-| Site | Description | Preview |
-|------|-------------|---------|
-| [**Expo**](expo/DESIGN.md) | Dark developer platform, tight letter-spacing, code-centric hero | [Light](expo/preview.html) · [Dark](expo/preview-dark.html) |
+- [**Figma**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/figma/) - Collaborative design tool. Vibrant multi-color, playful yet professional
+- [**Notion**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/notion/) - All-in-one workspace. Warm minimalism, serif headings, soft surfaces
 
----
+### Enterprise & Consumer
 
-> **Want a specific site added?** [Open an issue](https://github.com/VoltAgent/awesome-design-md/issues) with the URL.
+- [**Apple**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/apple/) - Consumer electronics. Premium white space, SF Pro, cinematic imagery
+- [**IBM**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/ibm/) - Enterprise technology. Carbon design system, structured blue palette
+- [**NVIDIA**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/nvidia/) - GPU computing. Green-black energy, technical power aesthetic
+- [**Uber**](https://github.com/VoltAgent/awesome-design-md/tree/main/design-md/uber/) - Mobility platform. Bold black and white, tight type, urban energy
 
 
 
@@ -96,10 +120,6 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - [**Request a site**](https://github.com/VoltAgent/awesome-design-md/issues): Open an issue with the URL
 - **Improve existing files**: Fix wrong colors, missing tokens, weak descriptions
 - **Report issues**: Let us know if something looks off
-
-
-
-
 
 
 ## License
