@@ -123,7 +123,7 @@ tabBtns.forEach(btn => {
   })
 })
 
-searchInput.addEventListener('input', e => {
+searchInput?.addEventListener('input', e => {
   searchQuery = e.target.value.trim().toLowerCase()
   updateGallery()
 })
@@ -160,48 +160,78 @@ function openModal(brand) {
   const screenshot = document.getElementById('modal-screenshot')
   screenshot.src = `/screenshots/${brand.id}.webp`
   screenshot.alt = `${brand.name} website`
-  document.getElementById('modal-caption').textContent =
-    `${new URL(brand.websiteUrl).hostname} · Updated monthly`
+  let hostname = brand.websiteUrl
+  try { hostname = new URL(brand.websiteUrl).hostname } catch {}
+  document.getElementById('modal-caption').textContent = `${hostname} · Updated monthly`
 
   // Colors
   const colorsEl = document.getElementById('modal-colors')
-  colorsEl.innerHTML = brand.tokens.colors.map(c => `
-    <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
-      <div style="background:${c.hex};width:28px;height:28px;border-radius:7px;border:1px solid #ffffff0d"></div>
-      <span style="font-size:8px;color:#555;font-family:monospace">${c.hex}</span>
-    </div>
-  `).join('')
+  colorsEl.innerHTML = ''
+  brand.tokens.colors.forEach(c => {
+    const wrapper = document.createElement('div')
+    wrapper.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:4px'
+    const swatch = document.createElement('div')
+    swatch.style.cssText = `width:28px;height:28px;border-radius:7px;border:1px solid #ffffff0d`
+    swatch.style.background = c.hex
+    const label = document.createElement('span')
+    label.style.cssText = 'font-size:8px;color:#555;font-family:monospace'
+    label.textContent = c.hex
+    wrapper.appendChild(swatch)
+    wrapper.appendChild(label)
+    colorsEl.appendChild(wrapper)
+  })
 
   // Typography
   const typoEl = document.getElementById('modal-typography')
-  typoEl.innerHTML = `
-    <div style="display:flex;align-items:baseline;gap:8px">
-      <span style="font-size:8px;color:#555;width:28px;flex-shrink:0">H1</span>
-      <span style="font-size:14px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;font-family:${brand.tokens.fontFamily}">${brand.name.toUpperCase()}</span>
-      <span style="font-size:9px;color:#444;margin-left:auto">${brand.tokens.fontFamily.split(',')[0]}</span>
-    </div>
-    <div style="display:flex;align-items:baseline;gap:8px">
-      <span style="font-size:8px;color:#555;width:28px;flex-shrink:0">Body</span>
-      <span style="font-size:11px;color:#aaa;font-family:${brand.tokens.fontFamily}">The quick brown fox jumps</span>
-    </div>
-    <div style="display:flex;align-items:baseline;gap:8px">
-      <span style="font-size:8px;color:#555;width:28px;flex-shrink:0">Label</span>
-      <span style="font-size:9px;color:#666;letter-spacing:0.08em;text-transform:uppercase;font-family:${brand.tokens.fontFamily}">CONFIGURE</span>
-    </div>
-  `
+  typoEl.innerHTML = ''
+  const fontFam = brand.tokens.fontFamily
+  const brandNameUpper = brand.name.toUpperCase()
+  const fontShort = fontFam.split(',')[0]
+
+  const rows = [
+    { label: 'H1', text: brandNameUpper, style: `font-size:14px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase`, meta: fontShort },
+    { label: 'Body', text: 'The quick brown fox jumps', style: 'font-size:11px;color:#aaa', meta: null },
+    { label: 'Label', text: 'CONFIGURE', style: 'font-size:9px;color:#666;letter-spacing:0.08em;text-transform:uppercase', meta: null },
+  ]
+  rows.forEach(({ label, text, style, meta }) => {
+    const row = document.createElement('div')
+    row.style.cssText = 'display:flex;align-items:baseline;gap:8px'
+    const lbl = document.createElement('span')
+    lbl.style.cssText = 'font-size:8px;color:#555;width:28px;flex-shrink:0'
+    lbl.textContent = label
+    const sample = document.createElement('span')
+    sample.style.cssText = style
+    sample.style.fontFamily = fontFam
+    sample.textContent = text
+    row.appendChild(lbl)
+    row.appendChild(sample)
+    if (meta) {
+      const metaEl = document.createElement('span')
+      metaEl.style.cssText = 'font-size:9px;color:#444;margin-left:auto'
+      metaEl.textContent = meta
+      row.appendChild(metaEl)
+    }
+    typoEl.appendChild(row)
+  })
 
   // Buttons
   const radiusMap = { 'rounded-none': '0', 'rounded-sm': '4px', 'rounded-md': '8px', 'rounded-full': '9999px' }
   const radius = radiusMap[brand.tokens.borderRadius] ?? '8px'
   const accent = brand.tokens.colors[0]?.hex ?? '#10b981'
-  document.getElementById('modal-buttons').innerHTML = `
-    <button style="background:${accent};color:${isLight(accent)?'#000':'#fff'};border:none;border-radius:${radius};padding:5px 14px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase">
-      PRIMARY
-    </button>
-    <button style="background:transparent;color:#ccc;border:1px solid #333;border-radius:${radius};padding:5px 14px;font-size:10px;letter-spacing:0.05em;text-transform:uppercase">
-      GHOST
-    </button>
-  `
+  const buttonsEl = document.getElementById('modal-buttons')
+  buttonsEl.innerHTML = ''
+  const primaryBtn = document.createElement('button')
+  primaryBtn.style.cssText = `border:none;padding:5px 14px;font-size:10px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase`
+  primaryBtn.style.background = accent
+  primaryBtn.style.color = isLight(accent) ? '#000' : '#fff'
+  primaryBtn.style.borderRadius = radius
+  primaryBtn.textContent = 'PRIMARY'
+  const ghostBtn = document.createElement('button')
+  ghostBtn.style.cssText = `background:transparent;color:#ccc;border:1px solid #333;padding:5px 14px;font-size:10px;letter-spacing:0.05em;text-transform:uppercase`
+  ghostBtn.style.borderRadius = radius
+  ghostBtn.textContent = 'GHOST'
+  buttonsEl.appendChild(primaryBtn)
+  buttonsEl.appendChild(ghostBtn)
   document.getElementById('modal-button-style').textContent = brand.tokens.buttonStyle
 
   // Footer
@@ -263,7 +293,7 @@ document.getElementById('gallery-grid').addEventListener('click', e => {
 })
 
 // Close modal
-modalClose.addEventListener('click', () => modal.close())
+modalClose?.addEventListener('click', () => modal.close())
 modal.addEventListener('click', e => { if (e.target === modal) modal.close() })
 modal.addEventListener('close', () => {
   document.querySelectorAll('.brand-card').forEach(c => {
