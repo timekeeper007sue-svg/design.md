@@ -1,0 +1,30 @@
+{
+  "name": "awesome-design-md",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "screenshots": "tsx scripts/capture-screenshots.ts",
+    "screenshots:diff": "tsx scripts/diff-screenshots.ts",
+    "gen:brands": "tsx scripts/generate-brands-data.ts"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^6.1.5",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.51.1",
+    "sharp": "^0.33.5",
+    "tsx": "^4.19.3",
+    "vitest": "^3.1.1"
+  }
+}
