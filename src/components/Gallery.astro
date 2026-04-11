@@ -218,9 +218,13 @@ function openModal(brand) {
   // Mark active card
   document.querySelectorAll('.brand-card').forEach(c => {
     c.style.outline = ''
+    c.style.boxShadow = ''
   })
   const activeCard = document.querySelector(`.brand-card[data-brand-id="${brand.id}"]`)
-  if (activeCard) activeCard.style.outline = '1px solid #10b981'
+  if (activeCard) {
+    activeCard.style.outline = '1px solid #10b981'
+    activeCard.style.boxShadow = '0 0 12px #10b98133'
+  }
 
   modal.showModal()
 }
@@ -264,6 +268,7 @@ modal.addEventListener('click', e => { if (e.target === modal) modal.close() })
 modal.addEventListener('close', () => {
   document.querySelectorAll('.brand-card').forEach(c => {
     c.style.outline = ''
+    c.style.boxShadow = ''
   })
 })
 </script>
