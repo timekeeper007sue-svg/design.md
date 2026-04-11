@@ -1,0 +1,119 @@
+---
+---
+
+<!--
+  BrandModal: empty shell rendered once in the DOM.
+  Content is populated by gallery.js when a card is clicked.
+  Uses native <dialog> element.
+-->
+<dialog
+  id="brand-modal"
+  class="bg-[#111] border border-[#2a2a2a] rounded-2xl p-0 w-full max-w-[720px]
+         shadow-[0_24px_60px_#00000099]
+         open:flex flex-col"
+>
+  <!-- Header -->
+  <div class="flex items-center justify-between px-5 py-4 border-b border-[#1a1a1a] bg-[#0f0f0f] rounded-t-2xl">
+    <div class="flex items-center gap-3">
+      <div id="modal-icon"
+           class="w-9 h-9 rounded-lg flex items-center justify-center
+                  text-sm font-bold text-white flex-shrink-0">
+      </div>
+      <div>
+        <h2 id="modal-name" class="text-base font-bold text-white leading-tight"></h2>
+        <p id="modal-tagline" class="text-[11px] text-[#666] mt-0.5 line-clamp-1"></p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span id="modal-category"
+            class="text-[10px] text-[#888] bg-[#1a1a1a] border border-[#2a2a2a] rounded px-2 py-0.5">
+      </span>
+      <button
+        id="modal-close"
+        class="w-7 h-7 rounded-full bg-[#1a1a1a] border border-[#2a2a2a] text-[#666]
+               hover:text-[#aaa] hover:border-[#444] transition-colors flex items-center justify-center text-sm"
+        aria-label="关闭"
+      >✕</button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[#1a1a1a] flex-1">
+
+    <!-- Left: Screenshot -->
+    <div class="p-4">
+      <p class="text-[10px] text-[#555] mb-2">品牌官网截图</p>
+      <div class="rounded-lg overflow-hidden border border-[#1f1f1f] skeleton">
+        <img
+          id="modal-screenshot"
+          src=""
+          alt=""
+          class="w-full object-cover object-top block"
+          loading="lazy"
+        />
+      </div>
+      <p id="modal-caption" class="text-[10px] text-[#555] text-center mt-2"></p>
+    </div>
+
+    <!-- Right: Tokens -->
+    <div class="p-4 flex flex-col gap-4">
+
+      <!-- Colors -->
+      <div>
+        <p class="text-[9px] font-semibold text-[#555] uppercase tracking-wide mb-2">配色</p>
+        <div id="modal-colors" class="flex gap-2 flex-wrap"></div>
+      </div>
+
+      <!-- Typography -->
+      <div>
+        <p class="text-[9px] font-semibold text-[#555] uppercase tracking-wide mb-2">字体层级</p>
+        <div id="modal-typography" class="flex flex-col gap-1.5"></div>
+      </div>
+
+      <!-- Buttons -->
+      <div>
+        <p class="text-[9px] font-semibold text-[#555] uppercase tracking-wide mb-2">组件风格</p>
+        <div id="modal-buttons" class="flex items-center gap-2 flex-wrap"></div>
+        <p id="modal-button-style" class="text-[9px] text-[#555] mt-1.5"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="flex items-center justify-between px-5 py-3 border-t border-[#1a1a1a] bg-[#0d0d0d] rounded-b-2xl">
+    <p id="modal-meta" class="text-[10px] text-[#555]"></p>
+    <div class="flex gap-2">
+      <a
+        id="modal-preview-link"
+        href="#"
+        target="_blank"
+        rel="noopener"
+        class="text-[11px] text-[#888] border border-[#2a2a2a] rounded-md px-3 py-1.5
+               hover:border-[#444] hover:text-[#aaa] transition-colors"
+      >
+        查看 preview →
+      </a>
+      <button
+        id="modal-copy-btn"
+        class="text-[11px] font-semibold text-black bg-[#10b981] rounded-md px-3 py-1.5
+               hover:bg-[#0ea572] transition-colors flex items-center gap-1.5"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        复制 DESIGN.md
+      </button>
+    </div>
+  </div>
+</dialog>
+
+<!-- Toast -->
+<div
+  id="toast"
+  role="alert"
+  class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50
+         px-4 py-2.5 rounded-lg text-sm font-medium shadow-lg
+         pointer-events-none opacity-0 transition-opacity duration-300"
+></div>

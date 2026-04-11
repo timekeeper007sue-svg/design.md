@@ -1,0 +1,53 @@
+---
+import type { Brand } from '../types.ts'
+
+interface Props { brand: Brand }
+const { brand } = Astro.props
+
+const screenshotSrc = `/screenshots/${brand.id}.webp`
+const accentColor = brand.tokens.colors[0]?.hex ?? '#888888'
+---
+
+<article
+  class="brand-card group relative rounded-[10px] overflow-hidden border border-[#1e1e1e]
+         bg-[#111] cursor-pointer transition-all duration-200
+         hover:-translate-y-0.5 hover:border-[#333] hover:shadow-[0_8px_24px_#00000066]"
+  data-brand-id={brand.id}
+  data-brand-name={brand.name}
+  data-brand-category={brand.category}
+>
+  <!-- Screenshot -->
+  <div class="aspect-video w-full overflow-hidden relative skeleton">
+    <img
+      src={screenshotSrc}
+      alt={`${brand.name} website screenshot`}
+      class="w-full h-full object-cover object-top"
+      loading="lazy"
+      onerror="this.style.display='none'"
+    />
+    <!-- Hover overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity
+                flex items-center justify-center">
+      <span class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-md
+                   px-3 py-1.5 text-[10px] text-white">
+        查看设计系统 →
+      </span>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="px-2.5 pt-2 pb-2.5 border-t border-[#1a1a1a]">
+    <p class="text-[11px] font-semibold text-[#e0e0e0] mb-0.5 truncate">{brand.name}</p>
+    <p class="text-[9px] text-[#555] leading-tight line-clamp-1">{brand.tagline}</p>
+    <div class="flex items-center justify-between mt-1.5">
+      <span class="text-[8px] text-[#555] bg-[#1a1a1a] px-1.5 py-px rounded">
+        {brand.category}
+      </span>
+      <span
+        class="w-2.5 h-2.5 rounded-full border border-white/10 flex-shrink-0"
+        style={`background: ${accentColor}`}
+        title={accentColor}
+      ></span>
+    </div>
+  </div>
+</article>
