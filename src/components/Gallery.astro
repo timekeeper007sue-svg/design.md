@@ -1,0 +1,8 @@
+---
+import type { Brand } from '../types.ts'
+interface Props { brands: Brand[] }
+const { brands } = Astro.props
+---
+<section id="gallery">
+  <p>Gallery placeholder — {brands.length} brands</p>
+</section>

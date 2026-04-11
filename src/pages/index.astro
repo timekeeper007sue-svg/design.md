@@ -1,17 +1,40 @@
 ---
-
+import '../styles/global.css'
+import Nav from '../components/Nav.astro'
+import Hero from '../components/Hero.astro'
+import Gallery from '../components/Gallery.astro'
+import { brands, brandCount } from '../data/brands.ts'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="zh" class="bg-[#0a0a0a] text-[#e0e0e0]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awesome DESIGN.md — 59 种品牌设计系统</title>
+    <meta name="description" content="59 个顶级产品的设计系统，提炼成 AI 可直接阅读的 DESIGN.md 文件。" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen font-sans antialiased">
+    <Nav count={brandCount} />
+    <main>
+      <Hero />
+      <Gallery brands={brands} />
+    </main>
+    <footer class="border-t border-[#1a1a1a] py-8 px-6 mt-16">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <span class="text-sm text-[#555]">Awesome DESIGN.md · MIT License</span>
+        <div class="flex gap-6 text-sm text-[#555]">
+          <a href="https://github.com/VoltAgent/awesome-design-md" class="hover:text-[#aaa] transition-colors">GitHub</a>
+          <a href="https://github.com/VoltAgent/awesome-design-md/blob/main/CONTRIBUTING.md" class="hover:text-[#aaa] transition-colors">Contributing</a>
+          <a href="https://getdesign.md/request" class="hover:text-[#aaa] transition-colors">Request a style</a>
+        </div>
+        <p class="text-xs text-[#444] text-center sm:text-right">
+          DESIGN.md files are community-maintained.<br/>
+          Spotted an outdated one?
+          <a href="https://github.com/VoltAgent/awesome-design-md/issues" class="text-[#10b981] hover:underline">Open an issue</a>
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

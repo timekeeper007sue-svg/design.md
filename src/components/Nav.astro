@@ -1,0 +1,23 @@
+---
+interface Props { count: number }
+const { count } = Astro.props
+---
+
+<nav class="sticky top-0 z-40 border-b border-[#1a1a1a] bg-[#0a0a0a]/90 backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 text-sm font-semibold text-white">
+      <div class="w-5 h-5 rounded bg-gradient-to-br from-[#10b981] to-[#059669]"></div>
+      Awesome DESIGN.md
+    </a>
+    <!-- Links -->
+    <div class="flex items-center gap-5 text-xs text-[#555]">
+      <a href="#gallery" class="hover:text-[#aaa] transition-colors">Gallery</a>
+      <a href="https://github.com/VoltAgent/awesome-design-md" class="hover:text-[#aaa] transition-colors">GitHub</a>
+      <a href="https://github.com/VoltAgent/awesome-design-md/blob/main/CONTRIBUTING.md" class="hover:text-[#aaa] transition-colors">Contributing</a>
+      <span class="bg-[#1a1a1a] border border-[#2a2a2a] rounded-full px-3 py-0.5 text-[#10b981]">
+        {count} styles
+      </span>
+    </div>
+  </div>
+</nav>
