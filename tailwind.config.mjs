@@ -6,7 +6,7 @@ export default {
       colors: {
         brand: {
           green: '#10b981',
-          'green-dim': 'rgba(16,185,129,0.12)',
+          'green-dim': '#0e2a1e',
         },
       },
     },
