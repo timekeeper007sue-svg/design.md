@@ -54,7 +54,7 @@
         </div>
         <div>
           <div class="text-xs font-semibold text-[#ddd] mb-0.5">{title}</div>
-          <div class="text-[11px] text-[#555] leading-relaxed">{desc}</div>
+          <div class={`text-[11px] text-[#555] leading-relaxed${n === '3' ? ' whitespace-nowrap' : ''}`}>{desc}</div>
         </div>
       </div>
     ))}
