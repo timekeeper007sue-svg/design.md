@@ -1,0 +1,76 @@
+name: Update Screenshots
+
+on:
+  schedule:
+    # 1st of each month at 02:00 UTC
+    - cron: '0 2 1 * *'
+  # Allow manual trigger from GitHub Actions UI
+  workflow_dispatch:
+
+permissions:
+  contents: write    # commit updated screenshots
+  issues: write      # create change-report issue
+
+jobs:
+  update-screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - run: npx playwright install chromium --with-deps
+
+      - name: Stash previous screenshots for diffing
+        run: cp -r public/screenshots public/screenshots-prev
+
+      - name: Capture new screenshots
+        run: npm run screenshots
+
+      - name: Run perceptual diff
+        id: diff
+        run: |
+          CHANGED_JSON=$(npm run --silent screenshots:diff)
+          echo "changed_json=$CHANGED_JSON" >> "$GITHUB_OUTPUT"
+          CHANGED=$(node -e "const c=JSON.parse(process.env.CHANGED_JSON || '[]');process.stdout.write(c.join(','))" )
+          echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Cleanup stash
+        if: always()
+        run: rm -rf public/screenshots-prev
+
+      - name: Commit updated screenshots
+        if: steps.diff.outputs.changed != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/screenshots/
+          git commit -m "chore: update screenshots (monthly) — ${{ steps.diff.outputs.changed }}"
+          git push
+
+      - name: Create change-report issue
+        if: steps.diff.outputs.changed != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const changed = JSON.parse('${{ steps.diff.outputs.changed_json }}')
+            const lines = changed.map(id => `- \`${id}\` — visual change detected (>5% pixels differ)`)
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📸 Monthly screenshot update — ${changed.length} brand(s) changed`,
+              body: [
+                '## Brands with visual changes',
+                '',
+                ...lines,
+                '',
+                'These brands may have redesigned their websites.',
+                'Please check if their `DESIGN.md` needs updating and open a PR if so.',
+              ].join('\n'),
+              labels: ['screenshot-update'],
+            })

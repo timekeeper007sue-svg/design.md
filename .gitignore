@@ -1,4 +1,26 @@
+# macOS
 .DS_Store
-node_modules/
+
+# Astro build output
 dist/
 .astro/
+
+# Node modules
+node_modules/
+
+# Temporary screenshot comparison stash (created by CI workflow)
+public/screenshots-prev/
+
+# Environment variables
+.env
+.env.*
+.env.local
+
+# Superpowers tooling
+.superpowers/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
