@@ -8,9 +8,11 @@ interface Props { brands: Brand[] }
 const { brands } = Astro.props
 ---
 
-<section id="gallery" class="max-w-7xl mx-auto px-6 pb-16">
-  <!-- Controls -->
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 py-6 sticky top-12 z-30 bg-[#0a0a0a]/95 backdrop-blur-sm">
+<section id="gallery" class="mx-auto max-w-none px-6 pb-16">
+  <!-- 同步容器：导航栏与内容区域采用同一内层宽度基准 -->
+  <div class="max-w-7xl mx-auto">
+    <!-- Controls -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 py-6 sticky top-12 z-30 bg-[#0a0a0a]/95 backdrop-blur-sm">
 
     <!-- Category tabs -->
     <div class="flex gap-1 flex-wrap">
@@ -60,6 +62,7 @@ const { brands } = Astro.props
   </div>
 
   <BrandModal />
+  </div>
 </section>
 
 <script define:vars={{ brands }}>

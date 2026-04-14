@@ -12,11 +12,16 @@
     "astro": "astro",
     "screenshots": "tsx scripts/capture-screenshots.ts",
     "screenshots:diff": "tsx scripts/diff-screenshots.ts",
-    "gen:brands": "tsx scripts/generate-brands-data.ts"
+    "gen:brands": "tsx scripts/generate-brands-data.ts",
+    "extract:tokens": "tsx scripts/extract-design-tokens.ts",
+    "design:validate": "tsx scripts/validate-design-md.ts"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.5",
+    "@astrojs/vercel": "^10.0.4",
     "astro": "^6.1.5",
+    "cheerio": "^1.2.0",
+    "css-tree": "^3.2.1",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {

@@ -1,0 +1,266 @@
+---
+import Nav from '../components/Nav.astro'
+import { brandCount } from '../data/brands.ts'
+---
+
+<!doctype html>
+<html lang="zh" class="bg-[#0a0a0a] text-[#e0e0e0]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>什么是 DESIGN.md — 9 类设计元素详解</title>
+    <meta name="description" content="DESIGN.md 包含 9 个标准化章节，让 AI 精准理解任何产品的视觉语言。" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="min-h-screen font-sans antialiased">
+    <Nav count={brandCount} />
+
+    <main class="relative">
+      <!-- Green glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px]
+                  bg-[radial-gradient(ellipse_at_top,#10b98119,transparent_70%)]
+                  pointer-events-none"></div>
+
+      <!-- Hero (mirrors homepage Hero section) -->
+      <section class="relative pt-20 pb-14 px-6 text-center overflow-hidden">
+        <div class="relative max-w-2xl mx-auto">
+          <div class="inline-block bg-[#10b98114] border border-[#10b98133]
+                      rounded-full px-3 py-1 text-xs text-[#10b981] mb-5 tracking-wide">
+            9 Standard Sections
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+            什么是 <span class="text-[#10b981]">DESIGN.md</span>？
+          </h1>
+          <p class="text-base text-[#666] max-w-md mx-auto leading-relaxed">
+            由 Google Stitch 提出的纯文本设计系统格式。将完整视觉语言提炼成 9 个标准化章节，
+            AI 编码助手可直接阅读并生成像素级精准的 UI。
+          </p>
+        </div>
+      </section>
+
+      <!-- 9 sections grid (mirrors Gallery section: max-w-7xl + px-6) -->
+      <section class="mx-auto max-w-none px-6 pb-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            <!-- Section 1 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">1</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Visual Theme & Atmosphere</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                定义整体视觉氛围和设计哲学。回答"这个产品看起来是什么感觉？"
+              </p>
+              <div class="bg-[#080808] border border-[#1a1a1a] rounded-lg px-3 py-2.5">
+                <code class="text-[11px] text-[#10b981aa] leading-relaxed">
+                  "Dark, precise, engineering-grade. Monochrome base with purple accent."
+                </code>
+              </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">2</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Color Palette & Roles</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                语义化色彩系统。给每个颜色一个"角色"。
+              </p>
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="inline-block w-3.5 h-3.5 rounded bg-[#5E6AD2] border border-white/5"></span>
+                  <span class="text-[10px] text-[#10b981] font-mono">#5E6AD2</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="inline-block w-3.5 h-3.5 rounded bg-[#0F0F13] border border-white/10"></span>
+                  <span class="text-[10px] text-[#10b981] font-mono">#0F0F13</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <span class="inline-block w-3.5 h-3.5 rounded bg-[#FFFFFF] border border-white/10"></span>
+                  <span class="text-[10px] text-[#10b981] font-mono">#FFFFFF</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">3</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Typography Rules</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                完整的字体层级。定义字号、字重、行高、字距。
+              </p>
+              <div class="space-y-1.5">
+                <div class="flex items-baseline justify-between">
+                  <span class="text-[12px] font-bold text-[#ddd]">Heading 1</span>
+                  <span class="text-[10px] text-[#555]">24px / 600</span>
+                </div>
+                <div class="flex items-baseline justify-between">
+                  <span class="text-[11px] text-[#aaa]">Body Text</span>
+                  <span class="text-[10px] text-[#555]">14px / 400</span>
+                </div>
+                <div class="flex items-baseline justify-between">
+                  <span class="text-[10px] text-[#777] uppercase tracking-wider">Label</span>
+                  <span class="text-[10px] text-[#555]">12px / 500</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">4</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Component Stylings</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                核心组件的完整样式定义，包括所有交互状态。
+              </p>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] font-semibold text-black bg-[#10b981] px-3 py-1 rounded-md">Primary</span>
+                <span class="text-[10px] text-[#aaa] border border-[#333] px-3 py-1 rounded-md">Ghost</span>
+                <span class="text-[10px] text-[#555] border border-[#333] px-3 py-1 rounded-md opacity-50">Disabled</span>
+              </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">5</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Layout Principles</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                布局规则和间距体系。定义"元素之间该怎么摆放"。
+              </p>
+              <div class="bg-[#080808] border border-[#1a1a1a] rounded-lg px-3 py-2.5">
+                <code class="text-[11px] text-[#10b981aa]">
+                  12-col grid · 16px gutter · max-width 1200px
+                </code>
+              </div>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">6</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Depth & Elevation</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                阴影层级和表面层级系统。定义"什么元素浮在什么上面"。
+              </p>
+              <div class="flex items-center gap-3">
+                <div class="text-center">
+                  <span class="inline-block w-8 h-4 rounded bg-[#151515] border border-[#1e1e1e]"></span>
+                  <div class="text-[9px] text-[#555] mt-1">L0</div>
+                </div>
+                <div class="text-center">
+                  <span class="inline-block w-8 h-4 rounded bg-[#151515] border border-[#1e1e1e]" style="box-shadow: 0 1px 2px rgba(0,0,0,0.3)"></span>
+                  <div class="text-[9px] text-[#555] mt-1">L1</div>
+                </div>
+                <div class="text-center">
+                  <span class="inline-block w-8 h-4 rounded bg-[#151515] border border-[#1e1e1e]" style="box-shadow: 0 8px 24px rgba(0,0,0,0.5)"></span>
+                  <div class="text-[9px] text-[#555] mt-1">L3</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">7</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Do's and Don'ts</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                设计护栏。告诉 AI 什么该做、什么不该做，避免风格偏离。
+              </p>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] text-[#10b981]">+</span>
+                  <span class="text-[11px] text-[#888]">用紫色强调仅用于主要操作</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] text-[#ef4444]">-</span>
+                  <span class="text-[11px] text-[#888]">不要在背景使用亮色渐变</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">8</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Responsive Behavior</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                响应式行为规则。不同屏幕尺寸下布局如何变化。
+              </p>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-[#888] border border-[#2a2a2a] px-2 py-0.5 rounded">&lt;768px</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                <span class="text-[10px] text-[#888]">Sidebar collapse</span>
+              </div>
+            </div>
+
+            <!-- Section 9 (full width) -->
+            <div class="group border border-[#1e1e1e] rounded-[10px] px-4 pt-3 pb-4 bg-[#111] hover:border-[#10b98133] transition-colors">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-6 h-6 rounded bg-[#10b98114] border border-[#10b98133] text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0">9</span>
+                <h2 class="text-sm font-semibold text-[#e0e0e0]">Agent Prompt Guide</h2>
+              </div>
+              <p class="text-xs text-[#777] leading-relaxed mb-3">
+                AI 助手快速参考。提取最关键的设计 token，附上可直接使用的提示词模板。
+              </p>
+              <div class="bg-[#080808] border border-[#1a1a1a] rounded-lg px-3 py-2.5">
+                <code class="text-[11px] text-[#10b981aa] leading-relaxed">
+                  "Build a dashboard using Linear style: #0F0F13 surfaces, #5E6AD2 accent, Inter font, compact feel."
+                </code>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- How to use (mirrors homepage how-to strip) -->
+      <section class="px-6 pb-16">
+        <div class="max-w-7xl mx-auto">
+          <div class="border border-[#1a1a1a] rounded-xl bg-[#0d0d0d] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#1a1a1a]">
+            {[
+              { n: '1', title: '选择风格', desc: '从风格库中挑一个你喜欢的品牌设计系统' },
+              { n: '2', title: '复制 DESIGN.md', desc: '一键复制到项目根目录，零配置' },
+              { n: '3', title: '告诉 AI Agent', desc: '说「按 DESIGN.md 的风格构建页面」' },
+            ].map(({ n, title, desc }) => (
+              <div class="flex items-start gap-3 px-5 py-4">
+                <div class="w-5 h-5 rounded-full bg-[#10b98114] border border-[#10b98133]
+                            text-[#10b981] text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {n}
+                </div>
+                <div>
+                  <div class="text-xs font-semibold text-[#ddd] mb-0.5">{title}</div>
+                  <div class={`text-[11px] text-[#555] leading-relaxed${n === '3' ? ' whitespace-nowrap' : ''}`}>{desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTA -->
+          <div class="mt-10 text-center">
+            <a href="/#gallery"
+               class="inline-block bg-[#10b981] text-black font-semibold text-sm px-6 py-2.5 rounded-lg hover:bg-[#0ea572] transition-colors">
+              浏览 {brandCount} 种风格
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-[#1a1a1a] py-8 px-6">
+      <div class="max-w-7xl mx-auto text-center">
+        <span class="text-xs text-[#444]">Awesome DESIGN.md · MIT License</span>
+      </div>
+    </footer>
+  </body>
+</html>
